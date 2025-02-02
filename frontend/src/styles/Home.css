@@ -1,0 +1,81 @@
+/* Home.css */
+
+.home {
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background: #f2f2f2;
+    overflow: hidden; /* Prevent any overflowing elements */
+  }
+  
+  .home__content {
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden;
+    text-align: center; /* Center text inside content */
+    color: #333;
+    z-index: 1; /* Make sure content appears above background shapes */
+  }
+  
+  .home__content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .home__content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .home__links {
+    font-size: 18px;
+  }
+  
+  .home__link {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .home__background__shape {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .home__background__shape1 {
+    width: 250px;
+    height: 250px;
+    top: -60px;
+    left: -80px;
+  }
+  
+  .home__background__shape2 {
+    width: 350px;
+    height: 350px;
+    top: -120px;
+    right: -100px;
+  }
+  
+  .home__background__shape3 {
+    width: 450px;
+    height: 450px;
+    top: -180px;
+    left: -150px;
+  }
+  
+  .home__background__shape4 {
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    right: -120px;
+  }
+  
