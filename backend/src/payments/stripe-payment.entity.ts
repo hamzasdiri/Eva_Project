@@ -20,19 +20,19 @@ export class StripePayment {
   @ManyToOne(() => Payment, (payment) => payment.stripePayments)
   @JoinColumn({ name: 'payment_id' })
   @Field(() => Payment)
-  payment: Payment; // Relationship with payment
+  payment: Payment;
 
   @Column()
   @Field()
-  stripePaymentIntentId: string; // Stripe Payment Intent ID
+  stripePaymentIntentId: string;
 
   @Column()
   @Field()
-  stripePaymentStatus: string; // Status from Stripe (e.g., 'succeeded', 'failed')
+  stripePaymentStatus: string;
 
   @Column()
   @Field()
-  stripeTransactionId: string; // Stripe Transaction ID
+  stripeTransactionId: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   @Field()

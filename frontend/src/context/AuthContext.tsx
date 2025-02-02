@@ -8,9 +8,8 @@ interface AuthContextType {
   logout: () => void;
 }
 
-// Define the props for the AuthProvider
 interface AuthProviderProps {
-  children: ReactNode; // Explicitly type children as ReactNode
+  children: ReactNode;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

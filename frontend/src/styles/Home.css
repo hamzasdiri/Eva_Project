@@ -2,25 +2,25 @@
 
 .home {
     position: relative;
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     background: #f2f2f2;
-    overflow: hidden; /* Prevent any overflowing elements */
+    overflow: hidden;
   }
   
   .home__content {
     position: relative;
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    text-align: center; /* Center text inside content */
+    text-align: center;
     color: #333;
-    z-index: 1; /* Make sure content appears above background shapes */
+    z-index: 1;
   }
   
   .home__content h1 {

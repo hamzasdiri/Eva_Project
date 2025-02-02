@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion"; // For animations
-import "../styles/Signup.css"; // Ensure you add appropriate styles for Login
+import { motion } from "framer-motion";
+import "../styles/Signup.css";
 
 const LOGIN_USER = gql`
   mutation login($loginDto: LoginDto!) {
@@ -29,7 +29,7 @@ const Login: React.FC = () => {
     };
     try {
       const { data } = await login({
-        variables: { loginDto }, // Pass the loginDto object
+        variables: { loginDto },
       });
       localStorage.setItem("accessToken", data.login.accessToken);
       localStorage.setItem("userId", data.login.userId);

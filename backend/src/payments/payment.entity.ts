@@ -22,23 +22,23 @@ export class Payment {
   @ManyToOne(() => User, (user) => user.payments)
   @JoinColumn({ name: 'user_id' })
   @Field(() => User)
-  user: User; // Relationship with user
+  user: User;
 
   @Column('int')
   @Field()
-  seatsRented: number; // Number of seats rented
+  seatsRented: number;
 
   @Column('float')
   @Field()
-  amountPaid: number; // Amount paid for the current month
+  amountPaid: number;
 
   @Column()
   @Field()
-  paymentDate: Date; // Date of payment
+  paymentDate: Date;
 
   @Column()
   @Field()
-  paymentStatus: string; // Payment status (e.g., 'paid', 'pending')
+  paymentStatus: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   @Field()
@@ -48,8 +48,7 @@ export class Payment {
   @Field()
   updatedAt: Date;
 
-  // Add this relationship to indicate that a Payment can have multiple StripePayments
   @OneToMany(() => StripePayment, (stripePayment) => stripePayment.payment)
   @Field(() => [StripePayment])
-  stripePayments: StripePayment[]; // Array of related StripePayment entities
+  stripePayments: StripePayment[];
 }

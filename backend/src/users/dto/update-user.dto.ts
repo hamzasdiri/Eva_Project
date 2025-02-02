@@ -21,11 +21,11 @@ export class UpdateUserDto {
   @IsOptional()
   @IsString()
   @MinLength(6)
-  password?: string; // Minimum length for the password, adjust as needed
+  password?: string;
 
   @Field({ nullable: true })
   @IsOptional()
   @IsInt()
   @Min(0)
-  seatsPaid?: number; // Update seatsPaid if necessary
+  seatsPaid?: number;
 }

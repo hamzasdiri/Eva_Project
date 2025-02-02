@@ -21,7 +21,7 @@ export class User {
 
   @OneToMany(() => Payment, (payment) => payment.user)
   @Field(() => [Payment])
-  payments: Payment[]; // Relationship to payments
+  payments: Payment[];
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   @Field()

@@ -3,7 +3,6 @@ import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/Home.css";
-// Modify the query to include userId
 const GET_USER_PAYMENTS = gql`
   query getUserPayments($userId: Float!) {
     getUserPayments(userId: $userId) {
@@ -14,9 +13,9 @@ const GET_USER_PAYMENTS = gql`
 `;
 
 const Dashboard: React.FC = () => {
-  const userId = localStorage.getItem("userId"); // Assuming userId is stored in localStorage after signup
+  const userId = localStorage.getItem("userId");
   const { loading, error, data } = useQuery(GET_USER_PAYMENTS, {
-    variables: { userId: userId ? parseFloat(userId) : null }, // Pass userId from localStorage
+    variables: { userId: userId ? parseFloat(userId) : null },
   });
 
   const [seats, setSeats] = useState<number>(0);
@@ -24,7 +23,6 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     if (data) {
-      // Summing the total seats rented and total amount paid from all the payment records
       const totalSeats = data.getUserPayments?.reduce(
         (total: number, payment: { seatsRented: number }) =>
           total + payment.seatsRented,
@@ -49,7 +47,7 @@ const Dashboard: React.FC = () => {
       <div>
         <div className="screen__content">
           <motion.div
-            className="dashboard-box" // Added class for custom styling
+            className="dashboard-box"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}

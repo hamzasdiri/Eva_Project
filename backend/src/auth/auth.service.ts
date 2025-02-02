@@ -9,7 +9,6 @@ import { SignupDto } from './dto/signup.dto';
 import * as bcrypt from 'bcrypt';
 import { AuthResponse } from './dto/auth-response.dto';
 
-// src/auth/auth.service.ts
 @Injectable()
 export class AuthService {
   constructor(
@@ -48,7 +47,7 @@ export class AuthService {
     const payload = { sub: user.id, email: user.email };
     const authResponse = new AuthResponse();
     authResponse.accessToken = this.jwtService.sign(payload);
-    authResponse.userId = user.id; // Explicitly set userId
+    authResponse.userId = user.id;
     return authResponse;
   }
 }

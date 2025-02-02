@@ -14,15 +14,14 @@ export class PaymentsResolver {
     @Args('createPaymentDto') createPaymentDto: CreatePaymentDto,
     @Args('userId') userId: number,
   ): Promise<Payment> {
-    const user = await this.paymentsService.findUserById(userId); // Assuming a method to find user
+    const user = await this.paymentsService.findUserById(userId);
     return this.paymentsService.createPayment(createPaymentDto, user);
   }
 
-  @Query(() => [Payment]) // Changed Mutation to Query
+  @Query(() => [Payment])
   async getUserPayments(
     @Args('userId') userId: number, // Accept the userId as an argument
   ): Promise<Payment[]> {
-    // Retrieve user payments using the service method
     return this.paymentsService.getUserPayments(userId);
   }
 }

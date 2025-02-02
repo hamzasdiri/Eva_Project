@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { loadStripe } from "@stripe/stripe-js";
-import { motion } from "framer-motion"; // Missing import for motion
+import { motion } from "framer-motion";
 import "../styles/Payment.css";
 
 const STRIPE_KEY = process.env.REACT_APP_STRIPE_KEY as string;
@@ -26,8 +26,7 @@ const Payment: React.FC = () => {
   const userId = localStorage.getItem("userId")
     ? parseFloat(localStorage.getItem("userId") as string)
     : 0;
-  // Assuming the user ID is available
-  const pricePerSeat = 1000; // Price per seat in cents (e.g., $10 per seat)
+  const pricePerSeat = 1000;
   const [createPayment, { loading, error }] = useMutation(CREATE_PAYMENT);
 
   const handlePayment = async () => {
@@ -50,7 +49,6 @@ const Payment: React.FC = () => {
 
       const stripe = await loadStripe(STRIPE_KEY);
       if (stripe && stripePaymentIntentId) {
-        // Redirect to Stripe checkout
         stripe.redirectToCheckout({ sessionId: stripePaymentIntentId });
       }
     } catch (err) {
@@ -58,14 +56,14 @@ const Payment: React.FC = () => {
     }
   };
 
-  const totalPrice = (seats * pricePerSeat) / 100; // Convert cents to dollars for display
+  const totalPrice = (seats * pricePerSeat) / 100;
 
   return (
     <div className="home__content">
       <div>
         <div className="screen__content flex justify-center items-center">
           <motion.div
-            className="dashboard-box" // Added class for custom styling
+            className="dashboard-box"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}

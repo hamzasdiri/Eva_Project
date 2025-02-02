@@ -6,25 +6,25 @@ import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { PaymentsModule } from './payments/payments.module';
-import { ConfigModule } from '@nestjs/config'; // ConfigModule for environment variables
-import { ApolloDriver } from '@nestjs/apollo'; // Import ApolloDriver
-import { Payment } from './payments/payment.entity'; // Import Payment entity
-import { StripePayment } from './payments/stripe-payment.entity'; // Import StripePayment entity
+import { ConfigModule } from '@nestjs/config';
+import { ApolloDriver } from '@nestjs/apollo';
+import { Payment } from './payments/payment.entity';
+import { StripePayment } from './payments/stripe-payment.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }), // Automatically loads environment variables
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DATABASE_URL, // Ensure DATABASE_URL is properly set in .env
-      entities: [User, Payment, StripePayment], // Add all entities here
-      synchronize: process.env.NODE_ENV !== 'production', // Avoid sync in production
+      url: process.env.DATABASE_URL,
+      entities: [User, Payment, StripePayment],
+      synchronize: process.env.NODE_ENV !== 'production',
     }),
     GraphQLModule.forRoot({
-      driver: ApolloDriver, // Specify the Apollo driver
+      driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      playground: process.env.NODE_ENV !== 'production', // Enable only in development
-      introspection: process.env.NODE_ENV !== 'production', // Enable introspection for dev only
+      playground: process.env.NODE_ENV !== 'production',
+      introspection: process.env.NODE_ENV !== 'production',
     }),
     UsersModule,
     AuthModule,

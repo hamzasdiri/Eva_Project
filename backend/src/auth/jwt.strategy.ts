@@ -19,7 +19,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  // Removed async and kept the method synchronous as there's no `await`
   validate(payload: { sub: number; email: string }) {
     return { id: payload.sub, email: payload.email };
   }

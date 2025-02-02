@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
-import { useNavigate } from 'react-router-dom';  // Updated import
-import { motion } from 'framer-motion';  // For animations
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import '../styles/Signup.css';
 
 const SIGNUP_USER = gql`
@@ -17,7 +17,7 @@ const Signup: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signup] = useMutation(SIGNUP_USER);
-  const navigate = useNavigate();  // Updated to useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const Signup: React.FC = () => {
 
     try {
       const { data } = await signup({
-        variables: { signupDto },  // Pass signupDto as a single object
+        variables: { signupDto },
       });
       localStorage.setItem('accessToken', data.signup.accessToken);
       localStorage.setItem('userId', data.signup.userId);

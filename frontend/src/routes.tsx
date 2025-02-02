@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Payment from './pages/Payment';
-import ProtectedRoute from './ProtectedRoute';  // Import the ProtectedRoute component
+import ProtectedRoute from './ProtectedRoute';
 
 const RoutesComponent: React.FC = () => (
   <Routes>

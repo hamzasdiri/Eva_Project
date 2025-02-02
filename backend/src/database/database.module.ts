@@ -15,10 +15,10 @@ import { StripePayment } from '../payments/stripe-payment.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Payment, User, StripePayment], // Add all entities here
-      synchronize: true, // Set to false in production for safety
+      entities: [Payment, User, StripePayment],
+      synchronize: true,
     }),
-    TypeOrmModule.forFeature([Payment, User, StripePayment]), // Register the entities for injection
+    TypeOrmModule.forFeature([Payment, User, StripePayment]),
   ],
   exports: [TypeOrmModule],
 })

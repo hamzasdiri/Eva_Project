@@ -8,10 +8,10 @@ export class CreatePaymentDto {
   @Field()
   @IsInt()
   @Min(1)
-  amount: number; // Amount to charge in cents (e.g., 1000 for $10)
+  amount: number;
 
   @Field()
   @IsInt()
   @Min(1)
-  seatsRented: number; // Number of seats rented
+  seatsRented: number;
 }

@@ -49,14 +49,11 @@ export class PaymentsService {
 
     const savedPayment = await this.paymentRepository.save(payment);
 
-    // Retrieve the charge associated with the payment intent
     const charges = await this.stripe.charges.list({
       payment_intent: paymentIntent.id,
     });
 
-    // Ensure there is at least one charge available
     const chargeId = charges.data.length > 0 ? charges.data[0].id : '';
-    // Save Stripe-specific details
     const stripePayment = new StripePayment();
     stripePayment.payment = savedPayment;
     stripePayment.stripePaymentIntentId = paymentIntent.id;
@@ -67,7 +64,6 @@ export class PaymentsService {
     return savedPayment;
   }
 
-  // Find all payments for a user
   async getUserPayments(userId: number): Promise<Payment[]> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
 
@@ -81,7 +77,6 @@ export class PaymentsService {
     });
   }
 
-  // Optional: You can also create this method if you don't have it yet
   async findUserById(userId: number): Promise<User> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
 
